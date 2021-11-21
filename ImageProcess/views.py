@@ -9,25 +9,20 @@ from matplotlib import pyplot as plt
 from skimage.exposure import histogram
 from skimage import data
 from skimage.segmentation import flood, flood_fill
-
+import os
+from skimage.util import img_as_ubyte
+from skimage.filters.rank import median
+from skimage.morphology import disk, ball
 # Create your views here.
 
 
-def asd(image_name):
-    checkers = data.checkerboard()
-
-    # Fill a square near the middle with value 127, starting at index (76, 76)
-    filled_checkers = flood_fill(checkers, (76, 76), 127)
-
-    fig, ax = plt.subplots(ncols=2, figsize=(10, 5))
-
-    ax[0].imshow(checkers, cmap=plt.cm.gray)
-    ax[0].set_title('Original')
-
-    ax[1].imshow(filled_checkers, cmap=plt.cm.gray)
-    ax[1].plot(76, 76, 'wo')  # seed point
-    ax[1].set_title('After flood fill')
-
+def GrayLevelHistogram(image_name, im):
+    noisy_image = asarray(im)
+    hist, hist_centers = histogram(noisy_image)
+    fig, ax = plt.subplots(ncols=1, figsize=(10, 5))
+    ax.plot(hist_centers, hist, lw=2)
+    ax.set_title('Gray-level histogram')
+    plt.tight_layout()
     plt.savefig("static/media/"+image_name+"2323"+".png")
     plt.show()
 
@@ -67,7 +62,7 @@ def main(request, operationtype):
         # burada işlemin foto gönderme
         if(operationtype == "Görüntü İyileştirme Yöntemleri"):
             print("giy")
-            Context['values'] = ["yöntem 1", "yöntem 2", "yarrak"]
+            Context['values'] = ["GrayLevelHistogram", "yöntem 2", "yarrak"]
             Context['controller'] = True
             return render(request, "main.html", Context)
         elif(operationtype == "Histogram Görüntüleme ve Eşikleme"):
@@ -95,13 +90,21 @@ def main(request, operationtype):
 
         pil_path = "media/"+image_name
         with Image.open(pil_path) as im:
-            asd(image_name=image_name)
-            stringas = "/static/media/"
 
+            optype = request.POST['optype']
+            print("işlem türü : "+str(optype))
+
+            GrayLevelHistogram(image_name=image_name, im=im)
+            stringas = "/static/media/"
+            cwd = os.getcwd()
+            print(cwd)
+            cwd = cwd.replace("'\'", "'/'")
+            print(cwd)
+            path = cwd + stringas
             Context['convertedurl'] = stringas + image_name+"2323" + ".png"
 
         if(operationtype == "Görüntü İyileştirme Yöntemleri"):
             print("giyy")
-            Context['values'] = ["yöntem 1", "yöntem 2", "yarrak"]
+            Context['values'] = ["GrayLevelHistogram", "yöntem 2", "yarrak"]
             Context['controller'] = True
             return render(request, "main.html", Context)

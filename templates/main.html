@@ -201,18 +201,21 @@
                 </div>
 
                 <div style="margin-top: 10px;">
-                    <input type="text" id="default" list="operaions" placeholder="Select Method">
+                    <input type="text" id="default" name="optype" list="operaions" placeholder="Select Method">
                     <datalist id="operaions">
                         {% for i in values %}
                         <option value="{{i}}">
                         {% endfor %}
                       
                     </datalist>
-                    <button type="submit"  > Send</button>
+                    <button type="submit">Send</button>
                 </form>  
                 </div>
 
             </div>
+
+
+
         </div>
                    
   
@@ -241,7 +244,7 @@
             </div>
 
         </div>
-
+    
     </div>
 
   
