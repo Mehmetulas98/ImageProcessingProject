@@ -169,23 +169,31 @@
 
 <body>
     <div class="grid-container">
-        <form enctype="multipart/form-data" method="post" >
+        <!-- <form enctype="multipart/form-data" method="post">
             {% csrf_token %}
+        <input type="file" name="document">
+        <button type="submit"  > Upload Pic</button>
+        
+            </form> -->
+      
+
         <div class="grid-child purple">
             <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
             <div class="file-upload">
+                <form enctype="multipart/form-data" method="post" >
+                    {% csrf_token %}
                 <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add
                     Image</button>
 
                 <div class="image-upload-wrap">
-                    <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+                    <input class="file-upload-input" type='file'  name="document" onchange="readURL(this);" accept="image/*" />
                     <div class="drag-text">
                         <h3>Drag and drop a file or select add Image</h3>
                     </div>
                 </div>
 
                 <div class="file-upload-content">
-                    <img class="file-upload-image" src="#" alt="your image" />
+                    <img class="file-upload-image" src="#" alt="your image"  />
                     <div class="image-title-wrap">
                         <button type="button" onclick="removeUpload()" class="remove-image">Remove <span
                                 class="image-title">Uploaded Image</span></button>
@@ -200,38 +208,48 @@
                         {% endfor %}
                       
                     </datalist>
-
-                    <input type="submit" value="Send" >
+                    <button type="submit"  > Send</button>
+                </form>  
                 </div>
 
             </div>
         </div>
                    
-    </form>  
+  
 
         <div class="grid-child green">
             <div class="file-upload">
-                <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add
-                    Image</button>
-
-                <div class="image-upload-wrap">
-                    <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+              
+ 
+                    
                     <div class="drag-text">
+                        {% load static %}
                         {%  if controller == True %}
-                             <img src="deneme.png" height="540px" width="500px" alt="">
+
+                        <form enctype="multipart/form-data" method="post" >
+                            {% csrf_token %}
+                              <img src="{{convertedurl}}" height="540px" width="500px" alt="">
                         {% endif %}
                        
                     </div>
 
-                </div>
-               <input style="margin-top: 10px;" type="button" value="Download">
+            
+                    <button style="margin-top: 10px;"  name="download" type="submit" >Download</button>
+
+              
+               </form>
             </div>
 
         </div>
 
     </div>
 
-    <script>
+  
+  
+  
+  
+  
+  <script>
         $('input').on('click', function() {
             $(this).attr('placeholder',$(this).val());
           $(this).val('');
