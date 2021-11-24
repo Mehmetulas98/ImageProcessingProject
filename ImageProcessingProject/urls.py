@@ -23,7 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/', views.index, name='index'),
     path('', views.index, name='index'),
-    path('index/<operationtype>', views.main, name='main')
+    path('index/<operationtype>', views.main, name='main'),
+    path('video/', views.video, name='video')
 
 
 ]

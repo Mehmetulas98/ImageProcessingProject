@@ -208,6 +208,14 @@
                         {% endfor %}
                       
                     </datalist>
+
+                    {%if IntensityControl %}
+
+                    <input type="number" name="InsensityValueOne" placeholder="Please Insert Value">
+
+                    {% endif %}
+
+
                     <button type="submit">Send</button>
                 </form>  
                 </div>
@@ -227,31 +235,25 @@
                     
                     <div class="drag-text">
                         {% load static %}
-                        {%  if controller == True %}
+                        {%  if controller %}
+ 
+                           
 
-                        <form enctype="multipart/form-data" method="post" >
-                            {% csrf_token %}
-                              <img src="{{convertedurl}}" height="540px" width="500px" alt="">
+                            <input type="hidden" name="DownloadImage" value="{{convertedurl}}">
+
+                            <img src="{{convertedurl}}" name="DownloadImage" height="540px" width="500px" alt="">
+
+                            {% else %}
+
+                            <img src="{% static 'img/white.png' %}"  height="540px" width="500px" alt="">
                         {% endif %}
                        
                     </div>
-
-            
-                    <button style="margin-top: 10px;"  name="download" type="submit" >Download</button>
-
-              
-               </form>
+                    <p> <a href="{{convertedurl}}" download>Download Image</a></p>
+                    <!-- <div style="float: none;"><button style="margin-top: 10px;"  name="download" type="submit" >Download</button></div> -->
             </div>
-
         </div>
-    
     </div>
-
-  
-  
-  
-  
-  
   <script>
         $('input').on('click', function() {
             $(this).attr('placeholder',$(this).val());
@@ -262,8 +264,7 @@
             $(this).val($(this).attr('placeholder'));
           }
         });
-        
-                            </script>
+</script>
 
 
 </body>

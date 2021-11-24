@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        <form enctype="multipart/form-data" method="post">
+            {% csrf_token %}        
+            <input type="file" name="video">
+            <button type="submit"  > Upload Video</button>
+        </form>
+
+    </div>
+    <div>
+       
+        <video class="video-fluid" autoplay loop muted autoplay="autoplay" >
+            <source src="{{VideoUrl}}" type="video/mp4">
+        </video>
+     
+    </div>
+
+    <div>
+
+        <p> <a href="{{VideoUrl}}" download>Download Video</a></p>
+
+    </div>
+    
+</body>
+</html>
