@@ -2,6 +2,8 @@ from skimage.exposure import histogram
 from numpy import asarray
 from matplotlib import pyplot as plt
 
+SAVE_PATH = "static/media/"
+
 
 def GrayLevelHistogram(image_name, im, konum):
     noisy_image = asarray(im)
@@ -11,5 +13,5 @@ def GrayLevelHistogram(image_name, im, konum):
     ax.plot(hist_centers, hist, lw=2)
     ax.set_title('Gray-level histogram')
     plt.tight_layout()
-    plt.savefig("static/media/"+image_name)
+    plt.savefig(SAVE_PATH+image_name)
     # plt.show()

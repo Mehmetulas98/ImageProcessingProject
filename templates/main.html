@@ -242,14 +242,15 @@
                             <input type="hidden" name="DownloadImage" value="{{convertedurl}}">
 
                             <img src="{{convertedurl}}" name="DownloadImage" height="540px" width="500px" alt="">
-
+                            <p> <a href="{{convertedurl}}" download>Download Image</a></p>
                             {% else %}
 
                             <img src="{% static 'img/white.png' %}"  height="540px" width="500px" alt="">
+                         
                         {% endif %}
                        
                     </div>
-                    <p> <a href="{{convertedurl}}" download>Download Image</a></p>
+                  
                     <!-- <div style="float: none;"><button style="margin-top: 10px;"  name="download" type="submit" >Download</button></div> -->
             </div>
         </div>

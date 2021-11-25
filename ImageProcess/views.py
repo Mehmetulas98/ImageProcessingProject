@@ -7,6 +7,7 @@ from PIL import Image
 from numpy import asarray
 import numpy as np
 from matplotlib import pyplot as plt
+from scipy.ndimage import morphology
 from skimage import data
 from skimage.segmentation import flood, flood_fill
 import os
@@ -29,79 +30,14 @@ from ImageProcess.functions.intensity import *
 from ImageProcess.functions.histogram import *
 
 
-def ImageMorphology():
-
-    noisy_image = img_as_ubyte(data.camera())
-
-    closing = maximum(minimum(noisy_image, disk(5)), disk(5))
-    opening = minimum(maximum(noisy_image, disk(5)), disk(5))
-    grad = gradient(noisy_image, disk(5))
-
-    # display results
-    fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(10, 10),
-                             sharex=True, sharey=True)
-    ax = axes.ravel()
-
-    ax[0].imshow(noisy_image, cmap=plt.cm.gray)
-    ax[0].set_title('Original')
-
-    ax[1].imshow(closing, cmap=plt.cm.gray)
-    ax[1].set_title('Gray-level closing')
-
-    ax[2].imshow(opening, cmap=plt.cm.gray)
-    ax[2].set_title('Gray-level opening')
-
-    ax[3].imshow(grad, cmap=plt.cm.gray)
-    ax[3].set_title('Morphological gradient')
-
-    for a in ax:
-        a.axis('off')
-
-    plt.tight_layout()
-    plt.show()
-
-
-def LocalAutolevel(image_name, im):
-    noisy_image = asarray(im)
-    # noisy_image = img_as_ubyte(data.camera())
-
-    auto = autolevel(noisy_image.astype(np.uint16), disk(20))
-
-    fig, ax = plt.subplots(ncols=2, figsize=(10, 5), sharex=True, sharey=True)
-
-    ax[0].imshow(noisy_image, cmap=plt.cm.gray)
-    ax[0].set_title('Original')
-
-    ax[1].imshow(auto, cmap=plt.cm.gray)
-    ax[1].set_title('Local autolevel')
-
-    for a in ax:
-        a.axis('off')
-
-    plt.tight_layout()
-    plt.savefig("static/media/"+image_name+"2323"+".png")
-    plt.show()
-
-
-def ImageSmoothing(image_name, im):
-
-    noisy_image = asarray(im)
-    loc_mean = mean(noisy_image, disk(10))
-
-    fig, ax = plt.subplots(ncols=2, figsize=(10, 5), sharex=True, sharey=True)
-
-    ax[0].imshow(noisy_image, vmin=0, vmax=255, cmap=plt.cm.gray)
-    ax[0].set_title('Original')
-
-    ax[1].imshow(loc_mean, vmin=0, vmax=255, cmap=plt.cm.gray)
-    ax[1].set_title('Local mean $r=10$')
-
-    for a in ax:
-        a.axis('off')
-
-    plt.tight_layout()
-    plt.savefig("static/media/"+image_name+"2323"+".png")
-    plt.show()
+FILTERS = ["Hessian", "Gaussian", "UnsharpMask", "ThresholdYen", "ThresholdTriangle",
+           "ThresholdSauvola", "ThresholdOtsu", "ThresholdNiblack", "ThresholdMultiotsu", "ThresholdMean"]
+HISTOGRAM = ["GrayLevelHistogram"]
+TRANSFORM = ["Swirl", "Rotate", "IntegralImage ",
+             "DownscaleLocalMean", "Iradon"]
+INTENSITY = ["NoiseRemoval"]
+MORPHOLOGY = ["Closing", "AreaClosing",
+              "AreaOpening ", "BinaryClosing", "BinaryDilation", "BinaryOpening", "FloodFill", "Dilation", "Flood", "Erosion"]
 
 
 def index(request):
@@ -117,51 +53,29 @@ def main(request, operationtype):
     print("request şekli :  " + str(request.method))
     if(request.method == "GET"):
         if(operationtype == "Görüntü İyileştirme Yöntemleri"):
-            Context['values'] = [
-                "Hessian", "Gaussian", "UnsharpMask", "ThresholdYen", "ThresholdTriangle", "ThresholdSauvola", "ThresholdOtsu", "ThresholdNiblack", "ThresholdMultiotsu", "ThresholdMean"]
-
+            Context['values'] = FILTERS
             return render(request, "main.html", Context)
         elif(operationtype == "Histogram Görüntüleme ve Eşikleme"):
-            Context['values'] = [
-                "GrayLevelHistogram"]
-            Context['controller'] = True
+            Context['values'] = HISTOGRAM
             return render(request, "main.html", Context)
         elif(operationtype == "Uzaysal Dönüşüm İşlemleri"):
-            Context['values'] = ["Swirl", "Rotate",
-                                 "IntegralImage ", "DownscaleLocalMean", "Iradon"]
-            Context['controller'] = True
+            Context['values'] = TRANSFORM
             return render(request, "main.html", Context)
         elif(operationtype == "Yoğunluk Dönüşümü İşlemleri"):
-            Context['values'] = ["NoiseRemoval"]
-            Context['controller'] = True
+            Context['values'] = INTENSITY
             Context["IntensityControl"] = True
             return render(request, "main.html", Context)
         elif(operationtype == "Morfolojik İşlemler"):
-            Context['values'] = ["Closing", "AreaClosing",
-                                 "AreaOpening ", "BinaryClosing", "BinaryDilation", "BinaryOpening", "FloodFill", "Dilation", "Flood", "Erosion"]
-            Context['controller'] = True
+            Context['values'] = MORPHOLOGY
             return render(request, "main.html", Context)
         elif(operationtype == "Video İşleme"):
             return redirect("video")
     else:
-        ###
-        # İNDİRME İŞLEMİNİN YAPILDIĞI YER
-        # if 'download' in request.POST:
-        #     print("İNDİRME İŞLEMİ")
-        #     DownloadFile = request.POST.get("DownloadImage", "")
-        #     print(DownloadFile)
 
-        #     fs = FileSystemStorage()
-        #     image_name = fs.save(DownloadFile.name, DownloadFile)
-        #     return render(request, "main.html", Context)
-        # ###
-
-        # Take image from template
         try:
             upl_file = request.FILES['document']
         except:
             return render(request, "main.html", Context)
-
         fs = FileSystemStorage()
         # Save image
         image_name = fs.save(upl_file.name, upl_file)
@@ -173,10 +87,8 @@ def main(request, operationtype):
             optype = request.POST['optype']
             print("işlem türü : "+str(optype))
             if(operationtype == "Görüntü İyileştirme Yöntemleri"):
-                Context['values'] = [
-                    "Hessian", "Gaussian", "UnsharpMask", "ThresholdYen", "ThresholdTriangle", "ThresholdSauvola", "ThresholdOtsu", "ThresholdNiblack", "ThresholdMultiotsu", "ThresholdMean"]
+                Context['values'] = FILTERS
                 Context['controller'] = True
-
                 if(optype == "ThresholdYen"):
                     ThresholdYen(image_name=image_name,
                                  im=im, konum=Context['url'])
@@ -215,8 +127,7 @@ def main(request, operationtype):
                 Context['convertedurl'] = stringas + image_name
                 return render(request, "main.html", Context)
             if(operationtype == "Histogram Görüntüleme ve Eşikleme"):
-                Context['values'] = [
-                    "GrayLevelHistogram"]
+                Context['values'] = HISTOGRAM
                 if(optype == "GrayLevelHistogram"):
                     GrayLevelHistogram(image_name=image_name,
                                        im=im, konum=Context['url'])
@@ -231,8 +142,7 @@ def main(request, operationtype):
                 Context['convertedurl'] = stringas + image_name
                 return render(request, "main.html", Context)
             if(operationtype == "Uzaysal Dönüşüm İşlemleri"):
-                Context['values'] = ["Swirl", "Rotate",
-                                     "IntegralImage ", "DownscaleLocalMean", "Iradon"]
+                Context['values'] = TRANSFORM
                 Context['controller'] = True
                 if(optype == "Swirl"):
                     Swirl(image_name=image_name,
@@ -258,7 +168,7 @@ def main(request, operationtype):
                 Context['convertedurl'] = stringas + image_name
                 return render(request, "main.html", Context)
             if(operationtype == "Yoğunluk Dönüşümü İşlemleri"):
-                Context['values'] = ["NoiseRemoval"]
+                Context['values'] = INTENSITY
                 Context['controller'] = True
                 # Get IntensityValueOne
                 IntensityValueOne = request.POST.get('InsensityValueOne')
@@ -274,8 +184,7 @@ def main(request, operationtype):
                 Context['convertedurl'] = stringas + image_name
                 return render(request, "main.html", Context)
             if(operationtype == "Morfolojik İşlemler"):
-                Context['values'] = ["Closing", "AreaClosing",
-                                     "AreaOpening ", "BinaryClosing", "BinaryDilation", "BinaryOpening", "FloodFill", "Dilation", "Flood", "Erosion"]
+                Context['values'] = MORPHOLOGY
                 Context['controller'] = True
                 if(optype == "Closing"):
                     Closing(image_name=image_name,
