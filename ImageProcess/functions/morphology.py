@@ -14,6 +14,7 @@ from skimage.morphology import binary_dilation
 from skimage.morphology import binary_erosion
 from skimage.morphology import binary_opening
 from skimage.morphology import dilation
+from skimage.morphology import convex_hull_image
 import numpy as np
 from skimage.io import imread
 from skimage import io
@@ -37,9 +38,9 @@ def AreaOpening(image_name, im, konum):
     io.imsave("static/media/"+image_name, result)
 
 
-def BinaryClosing(image_name, im, konum):
+def ConvexHullImage(image_name, im, konum):
     noisy_image = io.imread(konum, as_gray=True)
-    result = binary_closing(noisy_image)
+    result = convex_hull_image(noisy_image)
     io.imsave("static/media/"+image_name, result)
 
 

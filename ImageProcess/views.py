@@ -33,11 +33,11 @@ from ImageProcess.functions.histogram import *
 FILTERS = ["Hessian", "Gaussian", "UnsharpMask", "ThresholdYen", "ThresholdTriangle",
            "ThresholdSauvola", "ThresholdOtsu", "ThresholdNiblack", "ThresholdMultiotsu", "ThresholdMean"]
 HISTOGRAM = ["GrayLevelHistogram"]
-TRANSFORM = ["Swirl", "Rotate", "IntegralImage ",
+TRANSFORM = ["Swirl", "Rotate", "IntegralImage",
              "DownscaleLocalMean", "Iradon"]
 INTENSITY = ["NoiseRemoval"]
 MORPHOLOGY = ["Closing", "AreaClosing",
-              "AreaOpening ", "BinaryClosing", "BinaryDilation", "BinaryOpening", "FloodFill", "Dilation", "Flood", "Erosion"]
+              "AreaOpening", "ConvexHullImage", "BinaryDilation", "BinaryOpening", "FloodFill", "Dilation", "Flood", "Erosion"]
 
 
 def index(request):
@@ -170,6 +170,7 @@ def main(request, operationtype):
             if(operationtype == "Yoğunluk Dönüşümü İşlemleri"):
                 Context['values'] = INTENSITY
                 Context['controller'] = True
+                Context["IntensityControl"] = True
                 # Get IntensityValueOne
                 IntensityValueOne = request.POST.get('InsensityValueOne')
                 if(optype == "NoiseRemoval"):
@@ -195,9 +196,9 @@ def main(request, operationtype):
                 elif(optype == "AreaOpening"):
                     AreaOpening(image_name=image_name,
                                 im=im, konum=Context['url'])
-                elif(optype == "BinaryClosing"):
-                    BinaryClosing(image_name=image_name,
-                                  im=im, konum=Context['url'])
+                elif(optype == "ConvexHullImage"):
+                    ConvexHullImage(image_name=image_name,
+                                    im=im, konum=Context['url'])
                 elif(optype == "BinaryDilation"):
                     BinaryDilation(image_name=image_name,
                                    im=im, konum=Context['url'])

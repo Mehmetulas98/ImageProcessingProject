@@ -15,6 +15,10 @@ from skimage.filters import hessian
 
 SAVE_PATH = "static/media/"
 
+# Filter an image with the Hybrid Hessian filter.
+# This filter can be used to detect continuous edges, e.g. vessels, wrinkles, rivers.
+# It can be used to calculate the fraction of the whole image containing such objects.
+
 
 def Hessian(image_name, im, konum):
     noisy_image = io.imread(konum, as_gray=True)

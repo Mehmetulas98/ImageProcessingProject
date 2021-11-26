@@ -6,30 +6,72 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  color: #384047;
+}
+
+.wrapper {
+  max-width: 90%;
+  margin: 10px auto;
+  padding: 10px 20px;
+  background: #f4f7f8;
+  border-radius: 8px;
+}
+
+h1, h2 {
+  margin: 30px 0;
+  text-align: center;
+}
+
+video, audio, .mejs-treehouse {
+  margin: 0 auto;
+  display: block;
+}
+    </style>
 </head>
 <body>
 
-    <div>
+    
+    
+    <div class="wrapper">
+      
+      <h2>Video Processing</h2>
+
+      <div style="  text-align: center; margin: 50px;" >
         <form enctype="multipart/form-data" method="post">
             {% csrf_token %}        
             <input type="file" name="video">
-            <button type="submit"  > Upload Video</button>
+            <button type="submit"> Upload Video</button>
         </form>
 
     </div>
-    <div>
-       
-        <video class="video-fluid" autoplay loop muted autoplay="autoplay" >
-            <source src="{{VideoUrl}}" type="video/mp4">
-        </video>
+      {% if VideoUrl %}
+      <video controls>
+        <source src="{{VideoUrl}}" type="video/mp4">
+      </video>
+ 
+    <p style=" margin: 50px; text-align: center;"> <a href="{{VideoUrl}}" download>Download Video</a></p>
+
+    {% endif %}
+      
+    </div>
+
+
+
+
+  
      
-    </div>
 
-    <div>
-
-        <p> <a href="{{VideoUrl}}" download>Download Video</a></p>
-
-    </div>
+  
     
 </body>
 </html>
