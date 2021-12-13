@@ -23,7 +23,7 @@ def NoiseRemoval(image_name, im, konum, DiskValue):
     fig, ax = plt.subplots(ncols=1, figsize=(10, 7), sharex=True, sharey=True)
     ax.imshow(median(noisy_image, disk(int(DiskValue))),
               vmin=0, vmax=255, cmap=plt.cm.gray)
-    ax.set_title('Median $r=1$')
+    ax.set_title('Noise Removal - Disk Value is : ' + str(DiskValue))
     ax.axis('off')
     plt.tight_layout()
     plt.savefig(SAVE_PATH+image_name)

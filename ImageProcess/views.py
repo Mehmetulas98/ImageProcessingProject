@@ -71,7 +71,6 @@ def main(request, operationtype):
         elif(operationtype == "Video İşleme"):
             return redirect("video")
     else:
-
         try:
             upl_file = request.FILES['document']
         except:
@@ -98,7 +97,8 @@ def main(request, operationtype):
                 elif(optype == "Hessian"):
                     Hessian(image_name=image_name, im=im, konum=Context['url'])
                 elif(optype == "Gaussian"):
-                    Hessian(image_name=image_name, im=im, konum=Context['url'])
+                    Gaussian(image_name=image_name,
+                             im=im, konum=Context['url'])
                 elif(optype == "ThresholdTriangle"):
                     ThresholdTriangle(image_name=image_name,
                                       im=im, konum=Context['url'])

@@ -70,7 +70,7 @@ def Dilation(image_name, im, konum):
 
 def Flood(image_name, im, konum):
     noisy_image = io.imread(konum, as_gray=True)
-    result = flood(noisy_image, (0, 0))
+    result = flood(noisy_image, (1, 1), connectivity=1)
     io.imsave("static/media/"+image_name, result)
 
 

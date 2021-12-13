@@ -28,7 +28,7 @@ def Hessian(image_name, im, konum):
 
 def Gaussian(image_name, im, konum):
     noisy_image = io.imread(konum, as_gray=True)
-    result = gaussian(noisy_image, sigma=1, mode='reflect')
+    result = gaussian(noisy_image, sigma=1, mode='reflect', multichannel=True)
     io.imsave(SAVE_PATH+image_name, result)
 
 

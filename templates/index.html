@@ -61,9 +61,7 @@ http://www.templatemo.com/tm-500-fluid-gallery
                                 <li class="nav-item active selected">
                                     <a class="nav-link" href="#0" data-no="1">Main Page <span class="sr-only">(current)</span></a>
                                 </li>                                
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#0" data-no="2">About Project</a>
-                                </li>
+                              
                                 <!-- <li class="nav-item">
                                     <a class="nav-link" href="#0" data-no="3">3rd fluid</a>
                                 </li>
@@ -87,13 +85,13 @@ http://www.templatemo.com/tm-500-fluid-gallery
                 <li class="selected">                    
                     <div class="cd-full-width">
                         <div class="container-fluid js-tm-page-content" data-page-no="1" data-page-type="gallery">
-                            <div class="tm-img-gallery-container">
-                                <div class="tm-img-gallery gallery-one">
+                            <div class="tm-img-gallery-container ">
+                                <div  style="display: flex;" class="tm-img-gallery gallery-one">
                                 <!-- Gallery One pop up connected with JS code below -->
 
                                 <form enctype="multipart/form-data" method="get"   action="index/Görüntü İyileştirme Yöntemleri"  >
                                     {% csrf_token %}
-                                  <div class="grid-item">
+                                  <div style="width: auto;" class="grid-item  ">
                               
                                 <figure class="effect-sadie">
                                  
@@ -102,7 +100,7 @@ http://www.templatemo.com/tm-500-fluid-gallery
 
 
                                         <h2  class="tm-figure-title"> Görüntü İyileştirme İşlemleri</h2>
-                                        <p  class="tm-figure-description">Set true or false in HTML script tag for this page black and white.</p>  
+                                        <p  class="tm-figure-description"> </p>  
                                 </figure>
                                 </div> 
                                 
@@ -110,7 +108,7 @@ http://www.templatemo.com/tm-500-fluid-gallery
 
                             <form enctype="multipart/form-data" method="get" action="index/Histogram Görüntüleme ve Eşikleme">
                                 {% csrf_token %}
-                                <div class= "grid-item">
+                                <div style="width: auto;"  class= "grid-item  ">
                               
                                     <figure class="effect-sadie">
                                          <!--
@@ -120,14 +118,14 @@ http://www.templatemo.com/tm-500-fluid-gallery
     
     
                                             <h2  class="tm-figure-title"> Histogram Görüntüleme ve Eşikleme</h2>
-                                            <p  class="tm-figure-description">Set true or false in HTML script tag for this page black and white.</p>  
+                                            <p  class="tm-figure-description"> </p>  
                                     </figure>
                                     </div>   
                                 </form> 
 
                                 <form enctype="multipart/form-data" method="get" action="index/Uzaysal Dönüşüm İşlemleri">
                                     {% csrf_token %}
-                                    <div class="grid-item">
+                                    <div  style="width: auto;" class="grid-item  ">
                                   
                                         <figure class="effect-sadie">
                                              <!--
@@ -137,13 +135,13 @@ http://www.templatemo.com/tm-500-fluid-gallery
         
         
                                                 <h2  class="tm-figure-title"> Uzaysal Dönüşüm İşlemleri</h2>
-                                                <p  class="tm-figure-description">Set true or false in HTML script tag for this page black and white.</p>  
+                                                <p  class="tm-figure-description"> </p>  
                                         </figure>
                                         </div>   
                                     </form> 
                                     <form enctype="multipart/form-data" method="get" action="index/Yoğunluk Dönüşümü İşlemleri">
                                         {% csrf_token %}
-                                        <div class="grid-item">
+                                        <div style="width: auto;" class="grid-item ">
                                       
                                             <figure class="effect-sadie">
                                                  <!--
@@ -153,14 +151,16 @@ http://www.templatemo.com/tm-500-fluid-gallery
             
             
                                                     <h2  class="tm-figure-title"> Yoğunluk Dönüşümü İşlemleri</h2>
-                                                    <p  class="tm-figure-description">Set true or false in HTML script tag for this page black and white.</p>  
+                                                    <p  class="tm-figure-description"></p>  
                                             </figure>
                                             </div>   
                                         </form> 
+                                        </div>
+                                        <div  style="display: flex;" class="tm-img-gallery gallery-one">
 
                                         <form enctype="multipart/form-data" method="get" action="index/Morfolojik İşlemler">
                                             {% csrf_token %}
-                                            <div class="grid-item">
+                                            <div  style="width: auto;"   class="grid-item">
                                           
                                                 <figure class="effect-sadie">
                                                      <!--
@@ -170,14 +170,14 @@ http://www.templatemo.com/tm-500-fluid-gallery
                 
                 
                                                         <h2  class="tm-figure-title">Morfolojik İşlemler</h2>
-                                                        <p  class="tm-figure-description">Set true or false in HTML script tag for this page black and white.</p>  
+                                                        <p  class="tm-figure-description"> </p>  
                                                 </figure>
                                                 </div>   
                                             </form> 
 
                                             <form enctype="multipart/form-data" method="get" action="index/Video İşleme"  >
                                                 {% csrf_token %}
-                                                <div class="grid-item">
+                                                <div  style="width: auto;"  class="grid-item">
                                               
                                                     <figure class="effect-sadie">
                                                          <!--
@@ -187,49 +187,20 @@ http://www.templatemo.com/tm-500-fluid-gallery
                     
                     
                                                             <h2  class="tm-figure-title">Video İşleme</h2>
-                                                            <p  class="tm-figure-description">Set true or false in HTML script tag for this page black and white.</p>  
+                                                            <p  class="tm-figure-description"> </p>  
                                                     </figure>
                                                     </div>   
                                                 </form> 
 
+                                                </div>
 
-
-                               
-                                
+ 
+                                ıo
+                                                
                                         
-                                     <div class="grid-item" >
-                                        <figure class="effect-sadie">
-                                            <img src="{% static 'img/tm-img-06-tn.jpg' %}" alt="Image" class="img-fluid tm-img">
-                                            <figcaption>
-                                                <h2 class="tm-figure-title">Video İşleme </h2>
-                                                <p class="tm-figure-description">Maecenas purus sem, lobortis id odio in sapien.</p>
-                                                <a href="img/tm-img-06.jpg">View more</a>
-                                            </figcaption>
-                                        </figure>
-                                    </div>
-                                    
+                                 
                                    
-                                    <div class="grid-item" >
-                                        <figure class="effect-sadie">
-                                            <img src="{% static 'img/tm-img-06-tn.jpg' %}" alt="Image" class="img-fluid tm-img">
-                                            <figcaption>
-                                                <h2 class="tm-figure-title">Video İşleme </h2>
-                                                <p class="tm-figure-description">Maecenas purus sem, lobortis id odio in sapien.</p>
-                                                <a href="img/tm-img-06.jpg">View more</a>
-                                            </figcaption>
-                                        </figure>
-                                    </div>
-                                     <div class="grid-item" >
-                                        <figure class="effect-sadie">
-                                            <img src="{% static 'img/tm-img-06-tn.jpg' %}" alt="Image" class="img-fluid tm-img">
-                                            <figcaption>
-                                                <h2 class="tm-figure-title">Video İşleme </h2>
-                                                <p class="tm-figure-description">Maecenas purus sem, lobortis id odio in sapien.</p>
-                                                <a href="img/tm-img-06.jpg">View more</a>
-                                            </figcaption>
-                                        </figure>
-                                    </div>
-
+                                    
                                   
                                    
                                                                                                       
@@ -239,295 +210,18 @@ http://www.templatemo.com/tm-500-fluid-gallery
                     </div>                    
                 </li>
                 
-                <!-- Page 2 Gallery Two -->
-                <li>                    
-                    <div class="cd-full-width">
-                        <div class="container-fluid js-tm-page-content" data-page-no="2" data-page-type="gallery">
-                            <div class="tm-img-gallery-container">
-                                <div class="tm-img-gallery gallery-two">
-                                <!-- Gallery Two pop up connected with JS code below -->
+            
 
-
-
-                                <div class="container-fluid text-center">    
-                                    <div class="row content">
-                                      <div class="col-sm-2 sidenav">
-                                       
-                                      </div>
-                                      <div class="col-sm-8 text-left"> 
-                                        <h1>Welcome</h1>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                        <hr>
-                                        <h3>Test</h3>
-                                        <p>Lorem ipsum...</p>
-                                      </div>
-                                      <div class="col-sm-2 sidenav">
-                                        <div class="well">
-                                         
-                                        </div>
-                                        <div class="well">
-                                        
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                    
-                                    
-                                </div>                                 
-                            </div>
-                        </div>                      
-                    </div>
-                </li>
-
-                <!-- Page 3 Gallery Three -->
-                <li>
-                    <div class="cd-full-width">
-                        <div class="container-fluid js-tm-page-content" data-page-no="3" data-page-type="gallery">                        
-                            <div class="tm-img-gallery-container">
-                                <div class="tm-img-gallery gallery-three">
-                                <!-- Gallery Two pop up connected with JS code below -->
-                                    
-                                     <div class="grid-item">
-                                        <figure class="effect-sadie">
-                                            <img src="img/tm-img-07-tn.jpg" alt="Image" class="img-fluid tm-img">
-                                            <figcaption>
-                                                <h2 class="tm-figure-title">Photo <span><strong>1</strong></span></h2>
-                                                <p class="tm-figure-description">Suspendisse id placerat risus. Mauris quis luctus risus.</p>
-                                                <a href="img/tm-img-07.jpg">View more</a>
-                                            </figcaption>           
-                                        </figure>
-                                    </div>
-                                    <div class="grid-item">
-                                        <figure class="effect-sadie">
-                                            <img src="img/tm-img-16-tn.jpg" alt="Image" class="img-fluid tm-img">
-                                            <figcaption>
-                                                <h2 class="tm-figure-title">Photo <span><strong>2</strong></span></h2>
-                                                <p class="tm-figure-description">Maecenas purus sem, lobortis id odio in sapien.</p>
-                                                <a href="img/tm-img-16.jpg">View more</a>
-                                            </figcaption>           
-                                        </figure>
-                                    </div>
-                                    <div class="grid-item">
-                                        <figure class="effect-sadie">
-                                            <img src="img/tm-img-02-tn.jpg" alt="Image" class="img-fluid tm-img">
-                                            <figcaption>
-                                                <h2 class="tm-figure-title">Photo <span><strong>3</strong></span></h2>
-                                                <p class="tm-figure-description">Suspendisse id placerat risus. Mauris quis luctus risus.</p>
-                                                <a href="img/tm-img-02.jpg">View more</a>
-                                            </figcaption>           
-                                        </figure>
-                                    </div>
-                                    <div class="grid-item">
-                                        <figure class="effect-sadie">
-                                            <img src="img/tm-img-15-tn.jpg" alt="Image" class="img-fluid tm-img">
-                                            <figcaption>
-                                                <h2 class="tm-figure-title">Photo <span><strong>4</strong></span></h2>
-                                                <p class="tm-figure-description">Maecenas purus sem, lobortis id odio in sapien.</p>
-                                                <a href="img/tm-img-15.jpg">View more</a>
-                                            </figcaption>           
-                                        </figure>
-                                    </div>
-                                    <div class="grid-item">
-                                        <figure class="effect-sadie">
-                                            <img src="img/tm-img-03-tn.jpg" alt="Image" class="img-fluid tm-img">
-                                            <figcaption>
-                                                <h2 class="tm-figure-title">Photo <span><strong>5</strong></span></h2>
-                                                <p class="tm-figure-description">Suspendisse id placerat risus. Mauris quis luctus risus.</p>
-                                                <a href="img/tm-img-03.jpg">View more</a>
-                                            </figcaption>           
-                                        </figure>
-                                    </div>
-                                    <div class="grid-item">
-                                        <figure class="effect-sadie">
-                                            <img src="img/tm-img-14-tn.jpg" alt="Image" class="img-fluid tm-img">
-                                            <figcaption>
-                                                <h2 class="tm-figure-title">Photo <span><strong>6</strong></span></h2>
-                                                <p class="tm-figure-description">Maecenas purus sem, lobortis id odio in sapien.</p>
-                                                <a href="img/tm-img-14.jpg">View more</a>
-                                            </figcaption>           
-                                        </figure>
-                                    </div>
-                                    <div class="grid-item">
-                                        <figure class="effect-sadie">
-                                            <img src="img/tm-img-04-tn.jpg" alt="Image" class="img-fluid tm-img">
-                                            <figcaption>
-                                                <h2 class="tm-figure-title">Photo <span><strong>7</strong></span></h2>
-                                                <p class="tm-figure-description">Suspendisse id placerat risus. Mauris quis luctus risus.</p>
-                                                <a href="img/tm-img-04.jpg">View more</a>
-                                            </figcaption>           
-                                        </figure>
-                                    </div>
-                                    <div class="grid-item">
-                                        <figure class="effect-sadie">
-                                            <img src="img/tm-img-13-tn.jpg" alt="Image" class="img-fluid tm-img">
-                                            <figcaption>
-                                                <h2 class="tm-figure-title">Photo <span><strong>8</strong></span></h2>
-                                                <p class="tm-figure-description">Maecenas purus sem, lobortis id odio in sapien.</p>
-                                                <a href="img/tm-img-13.jpg">View more</a>
-                                            </figcaption>           
-                                        </figure>
-                                    </div>    
-                                    <div class="grid-item">
-                                        <figure class="effect-sadie">
-                                            <img src="img/tm-img-05-tn.jpg" alt="Image" class="img-fluid tm-img">
-                                            <figcaption>
-                                                <h2 class="tm-figure-title">Photo <span><strong>9</strong></span></h2>
-                                                <p class="tm-figure-description">Suspendisse id placerat risus. Mauris quis luctus risus.</p>
-                                                <a href="img/tm-img-05.jpg">View more</a>
-                                            </figcaption>           
-                                        </figure>
-                                    </div>
-                                    <div class="grid-item">
-                                        <figure class="effect-sadie">
-                                            <img src="img/tm-img-12-tn.jpg" alt="Image" class="img-fluid tm-img">
-                                            <figcaption>
-                                                <h2 class="tm-figure-title">Photo <span><strong>10</strong></span></h2>
-                                                <p class="tm-figure-description">Maecenas purus sem, lobortis id odio in sapien.</p>
-                                                <a href="img/tm-img-12.jpg">View more</a>
-                                            </figcaption>           
-                                        </figure>
-                                    </div>
-                                    <div class="grid-item">
-                                        <figure class="effect-sadie">
-                                            <img src="{% static 'img/tm-img-06-tn.jpg' %}" alt="Image" class="img-fluid tm-img">
-                                            <figcaption>
-                                                <h2 class="tm-figure-title">Photo <span><strong>11</strong></span></h2>
-                                                <p class="tm-figure-description">Suspendisse id placerat risus. Mauris quis luctus risus.</p>
-                                                <a href="img/tm-img-06.jpg">View more</a>
-                                            </figcaption>           
-                                        </figure>
-                                    </div>
-                                    <div class="grid-item">
-                                        <figure class="effect-sadie">
-                                            <img src="{% static 'img/tm-img-11-tn.jpg' %}" alt="Image" class="img-fluid tm-img">
-                                            <figcaption>
-                                                <h2 class="tm-figure-title">Photo <span><strong>12</strong></span></h2>
-                                                <p class="tm-figure-description">Maecenas purus sem, lobortis id odio in sapien.</p>
-                                                <a href="img/tm-img-11.jpg">View more</a>
-                                            </figcaption>           
-                                        </figure>
-                                    </div>                                                                                              
-                                </div>                                 
-                            </div> <!-- .tm-img-gallery-container -->
-                        </div>         
-                    </div>  
-                </li>
+                
 
                 <!-- Page 4 About -->
-                <li>
-                    <div class="cd-full-width">
-                        <div class="container-fluid js-tm-page-content tm-page-width tm-pad-b" data-page-no="4">
-
-                            <div class="tm-about-page">
-                            
-                            	<div class="row tm-white-box-margin-b">
-                                    <div class="col-xs-12">
-                                        <div class="tm-flex">
-                                            <div class="tm-bg-white-translucent text-xs-left tm-textbox tm-2-col-textbox-2 tm-textbox-padding">
-                                                <h2 class="tm-text-title">Multiple Columns</h2>
-                                                <p class="tm-text">Set true or false in HTML page line number 40 to turn on off page color. Mauris elit elit, imperdiet nec lorem sed, finibus maximus mauris. Nam laoreet eros nec convallis placerat.</p>
-                                            </div>
-                                            <div class="tm-bg-white-translucent text-xs-left tm-textbox tm-2-col-textbox-2 tm-textbox-padding">
-                                                <h2 class="tm-text-title">Class aptent taciti</h2>
-                                                <p class="tm-text">Aenean congue nulla et ligula consectetur consequat. Nullam fringilla blandit risus vitae auctor. Donec sed sapien varius, tincidunt nulla ut, ultrices nisl.</p>     
-                                            </div>
-                                            <div class="tm-bg-white-translucent text-xs-left tm-textbox tm-2-col-textbox-2 tm-textbox-padding">
-                                                <h2 class="tm-text-title">Aenean auctor</h2>
-                                                <p class="tm-text">Integer enim tortor, tempor quis augue luctus, condimentum porttitor urna. Maecenas condimentum suscipit tortor vitae convallis.</p>     
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> 
-                                
-                                <div class="row tm-white-box-margin-b">
-                                    <div class="col-xs-12">
-                                        <div class="tm-flex">
-                                            <div class="tm-bg-white-translucent text-xs-left tm-textbox tm-2-col-textbox-2 tm-textbox-padding">
-                                                <h2 class="tm-text-title">Nulla vitae magna</h2>
-                                                <p class="tm-text">Donec at felis at risus mattis efficitur. Pellentesque dui urna, blandit a congue ut, blandit sed eros. Sed sagittis consequat pellentesque. Vivamus eros turpis, lobortis sed fermentum euismod, vehicula id eros.</p>
-                                            </div>
-                                            <div class="tm-bg-white-translucent text-xs-left tm-textbox tm-2-col-textbox-2 tm-textbox-padding">
-                                                <h2 class="tm-text-title">Pellentesque dui urna</h2>
-                                                <p class="tm-text">Maecenas porta placerat lacus a lacinia. In imperdiet cursus erat, luctus molestie lorem congue at. Donec fringilla tortor non ipsum semper, sit amet aliquet magna rutrum.</p>     
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>  
-
-                                
-                                
-                                <div class="row tm-white-box-margin-b">
-                                    <div class="col-xs-12">
-                                        <div class="tm-flex">
-                                            <div class="tm-bg-white-translucent text-xs-left tm-textbox tm-textbox-padding">
-                                                <h2 class="tm-text-title">One Single Column</h2>
-                                                <p class="tm-text">You can simply set <strong>var tm_gray_site = true;</strong> or <strong>var tm_gray_site = false;</strong> in the HTML top script tag to enable / disable gray scale or color of the page. Vivamus sit amet scelerisque diam. Donec congue feugiat consectetur. Donec facilisis, elit non suscipit pretium, lacus quam feugiat nulla, id tempus libero tellus ut nisi. Mauris non mi molestie, tristique nibh eu, auctor nibh. Fusce accumsan pretium ex in ullamcorper.</p>
-                                                <p class="tm-text">Ut blandit nisi purus, eget imperdiet sapien sodales et. Duis euismod, elit in laoreet cursus, ante diam facilisis lacus, sit amet aliquam odio quam ut libero. Proin bibendum ex nec lorem semper euismod. Nulla sed urna at ligula maximus blandit.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                                                   
-                        </div>              
-                    </div> <!-- .cd-full-width -->
-
-                </li>
+               
 
                 <!-- Page 5 Contact Us -->
-                <li>
-                    <div class="cd-full-width">
-                        <div class="container-fluid js-tm-page-content tm-page-pad" data-page-no="5">
-                            <div class="tm-contact-page">                                
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <div class="tm-flex tm-contact-container">                                
-                                            <div class="tm-bg-white-translucent text-xs-left tm-textbox tm-2-col-textbox-2 tm-textbox-padding tm-textbox-padding-contact">
-                                                <h2 class="tm-contact-info">Feel free to say Hi!</h2>
-                                                <p class="tm-text">Nulla sed urna at ligula maximus blandit. Mauris nisi ligula, ultricies ac diam id, hendrerit tincidunt ipsum. Maecenas non massa justo.</p>                                                
-                                                
-                                                <!-- contact form -->
-                                                <form action="index.html" method="post" class="tm-contact-form">
-
-                                                    <div class="form-group">
-                                                        <input type="text" id="contact_name" name="contact_name" class="form-control" placeholder="Name"  required/>
-                                                    </div>
-                                        
-                                                    <div class="form-group">                                                        
-                                                        <input type="email" id="contact_email" name="contact_email" class="form-control" placeholder="Email"  required/>
-                                                    </div>                                                        
-                                                    
-                                                    <div class="form-group">
-                                                        <textarea id="contact_message" name="contact_message" class="form-control" rows="5" placeholder="Message" required></textarea>
-                                                    </div> 
-
-                                                    <button type="submit" class="pull-xs-right tm-submit-btn">Send</button>  
-                                                
-                                                </form>  
-                                            </div>
-
-                                            <div class="tm-bg-white-translucent text-xs-left tm-textbox tm-2-col-textbox-2 tm-textbox-padding tm-textbox-padding-contact">
-                                                <h2 class="tm-contact-info">4466 Old New St 28290, SF, California</h2>
-                                                <!-- google map goes here -->
-                                                <div id="google-map"></div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>    
-
-                        </div>
-                        
-                    </div> <!-- .cd-full-width -->
-                </li>
+              
             </ul> <!-- .cd-hero-slider -->
             
-            <footer class="tm-footer">
+            <footer style="position: relative;" class="tm-footer">
             
              
                 <p class="tm-copyright-text">Mehmet Ulaş Akduman | 05170000104 | akdumanmehmetulas@gmail.com
@@ -536,7 +230,7 @@ http://www.templatemo.com/tm-500-fluid-gallery
 
             </footer>
                     
-        </div> <!-- .cd-hero -->
+        </di    v> <!-- .cd-hero -->
         
 
         <!-- Preloader, https://ihatetomatoes.net/create-custom-preloading-screen/ -->
